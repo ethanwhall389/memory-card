@@ -17,7 +17,7 @@ function App() {
 
       <div className="game-cont cont">
         
-        <h1>Memory Card</h1>
+        <h1 style={{fontSize: '35px'}}>Memory Card</h1>
 
         <div className="extra-info">
           <Scoreboard></Scoreboard>

@@ -1,7 +1,8 @@
 export default function Scoreboard() {
     return (
         <div className="scoreboard-cont cont">
-            <p>Scoreboard</p>
+            <p>Score: 5</p>
+            <p>High Score: 10</p>
         </div>
     )
 }
