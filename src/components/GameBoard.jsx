@@ -1,13 +1,11 @@
 import Card from "./Card"
 
-export default function GameBoard() {
+export default function GameBoard({ cards }) {
     return (
         <div className="gameboard-cont cont">
-            <Card
-            image={'https://images.dog.ceo/breeds/lhasa/n02098413_4141.jpg'}
-            />
-            <Card></Card>
-            <Card></Card>
+            {cards.map((dog) => (
+                <Card key={dog.id} data={dog}/>
+            ))}
         </div>
     )
 }
