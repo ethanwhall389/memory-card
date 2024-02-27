@@ -10,10 +10,26 @@ function App() {
 
   const [difficulty, setDifficulty] = useState(3);
   const [cards, setCards] = useState([]);
-  const [gameStatus, setGameStatus] = useState('playing');
+  const [gameStatus, setGameStatus] = useState('onboarding');
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const apiKey = 'live_Nd86ZZRIvGLBSLXA8iiJKscdn6mjgRhbRh3BWed89B3IBB2vxSMW4cESRsggK0V8'
+  const [isMuted, setIsMuted] = useState(false);
 
+  // const clickAudio = new Audio('src/assets/audio/click.wav');
+  // const jazzAudio = new Audio('src/assets/audio/jazz-music.mp3');
+
+  // jazzAudio.play();
+
+  function resetGame() {
+    setGameStatus('onboarding');
+    setScore(0);
+  }
+
+  useEffect(() => {
+    score > highScore ? setHighScore(score) : null ;
+  }, [gameStatus]);
+  
   useEffect(() => {
     async function fetchData() {
       
@@ -33,7 +49,7 @@ function App() {
 
       // console.log(cardData);
 
-      //Dummy data \/
+      // Dummy data \/
       const cardData = [
         {
           id: 'C3KfxN2DG',
@@ -53,6 +69,37 @@ function App() {
           name: 'Chesapeake Bay Retriever',
           clicked: false,
         },
+        {
+          id: '8vgnFmYG81',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+        {
+          id: '8vgnFmYG82',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+        {
+          id: '8vgnFmYG83',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+        {
+          id: '8vgnFmYG84',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+        {
+          id: '8vgnFmYG85',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+
 
       ]
       //End of Dummy data
@@ -66,12 +113,24 @@ function App() {
   return (
     <div className='main-cont cont'>
       
+      <audio 
+      muted={isMuted}
+      autoPlay src="src/assets/audio/jazz-music.mp3"></audio>
+
       <div className="onboarding-cont cont" style={{display: gameStatus === 'onboarding' ? 'block' : 'none'}}>
-        <Onboarding/>
+        <Onboarding
+        setDifficulty={setDifficulty}
+        setGameStatus={setGameStatus}
+        />
       </div>
 
       <div className="gameover-cont cont" style={{display: gameStatus === 'loss' || gameStatus === 'win' ? 'block' : 'none'}}>
-        <GameOver status={gameStatus}/>
+        <GameOver
+        status={gameStatus}
+        score={score}
+        highScore={highScore}
+        resetGame={resetGame}
+        />
       </div>
 
       <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'block' : 'none'}}>
@@ -79,8 +138,11 @@ function App() {
         <h1 style={{fontSize: '35px'}}>Memory Card</h1>
 
         <div className="extra-info">
-          <Scoreboard score={score}></Scoreboard>
-          <Controls></Controls>
+          <Scoreboard score={score} highScore={highScore}></Scoreboard>
+          <Controls
+          setIsMuted={setIsMuted}
+          isMuted={isMuted}
+          ></Controls>
         </div>
 
         <GameBoard 
