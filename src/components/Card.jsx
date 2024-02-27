@@ -1,4 +1,4 @@
-export default function Card({ data, handleClick }) {
+export default function Card({ data, handleClick, id }) {
     console.log(data);
     console.log(data.length);
     return (

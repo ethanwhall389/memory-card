@@ -85,6 +85,7 @@ function App() {
 
         <GameBoard 
         cards={cards}
+        setCards={setCards}
         difficulty={difficulty}
         setGameStatus={setGameStatus}
         score={score}
