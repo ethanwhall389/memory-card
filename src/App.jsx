@@ -11,6 +11,7 @@ function App() {
   const [difficulty, setDifficulty] = useState(3);
   const [cards, setCards] = useState([]);
   const [gameStatus, setGameStatus] = useState('playing');
+  const [score, setScore] = useState(0);
   const apiKey = 'live_Nd86ZZRIvGLBSLXA8iiJKscdn6mjgRhbRh3BWed89B3IBB2vxSMW4cESRsggK0V8'
 
   useEffect(() => {
@@ -30,39 +31,37 @@ function App() {
       //   }
       // })
 
-      const cardData = [{
-            id: 12345,
-            url: 'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
-            name: 'Golden retreiver',
-            clicked: false,
-          }]
+      // console.log(cardData);
+
+      //Dummy data \/
+      const cardData = [
+        {
+          id: 'C3KfxN2DG',
+          url: 'https://cdn2.thedogapi.com/images/C3KfxN2DG.jpg',
+          name: 'Akbash Dog',
+          clicked: false,
+        },
+        {
+          id: 'Mn2A5Urz0',
+          url: 'https://cdn2.thedogapi.com/images/Mn2A5Urz0.jpg',
+          name: 'Bearded Collie',
+          clicked: false,
+        },
+        {
+          id: '8vgnFmYG8',
+          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+          name: 'Chesapeake Bay Retriever',
+          clicked: false,
+        },
+
+      ]
+      //End of Dummy data
 
       setCards(cardData);
     }
 
     fetchData();
   }, [difficulty])
-
-  useEffect( () => {
-    function gameScreen() {
-      
-      switch (gameStatus) {
-        case 'onboarding':
-          console.log('onboarding');
-          break;
-        case 'playing':
-          console.log('playing');
-          break;
-        case 'loss':
-          console.log('loss');
-          break;
-        case 'win':
-          console.log('win');
-          break;
-      }
-
-    }
-  }, [gameStatus])
 
   return (
     <div className='main-cont cont'>
@@ -72,7 +71,7 @@ function App() {
       </div>
 
       <div className="gameover-cont cont" style={{display: gameStatus === 'loss' || gameStatus === 'win' ? 'block' : 'none'}}>
-        <GameOver/>
+        <GameOver status={gameStatus}/>
       </div>
 
       <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'block' : 'none'}}>
@@ -80,11 +79,18 @@ function App() {
         <h1 style={{fontSize: '35px'}}>Memory Card</h1>
 
         <div className="extra-info">
-          <Scoreboard></Scoreboard>
+          <Scoreboard score={score}></Scoreboard>
           <Controls></Controls>
         </div>
 
-        <GameBoard cards={cards} difficulty={difficulty} setGameStatus={setGameStatus}></GameBoard>
+        <GameBoard 
+        cards={cards}
+        difficulty={difficulty}
+        setGameStatus={setGameStatus}
+        score={score}
+        setScore={setScore}
+
+        ></GameBoard>
 
       </div>
 

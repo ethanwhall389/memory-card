@@ -1,8 +1,8 @@
-export default function Card({ data }) {
+export default function Card({ data, handleClick }) {
     console.log(data);
     console.log(data.length);
     return (
-        <div className="card">
+        <div className="card" onClick={() => handleClick(data)}>
             <div className="image-cont"
             style={{
                 backgroundImage:`url(${data.url})`,

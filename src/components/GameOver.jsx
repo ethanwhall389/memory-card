@@ -1,5 +1,17 @@
-export default function GameOver() {
+export default function GameOver({ status }) {
     return (
-        <p>Game is over!</p>
+        <>
+            <div className="loss"
+            style={{display: status==='loss' ? 'block' : 'none'}}
+            >
+                <p>You lost!</p>
+            </div>
+
+            <div className="win"
+            style={{display: status==='win' ? 'block' : 'none'}}
+            >
+                <p>You won!</p>
+            </div>
+        </>
     )
 }
