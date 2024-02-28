@@ -114,12 +114,12 @@ function App() {
       loop
       autoPlay src="src/assets/audio/jazz-music.mp3"></audio>
 
-        <Onboarding
-        setDifficulty={setDifficulty}
-        setGameStatus={setGameStatus}
-        gameStatus={gameStatus}
-        setForceKey={setKey}
-        />
+      <Onboarding
+      setDifficulty={setDifficulty}
+      setGameStatus={setGameStatus}
+      gameStatus={gameStatus}
+      setForceKey={setKey}
+      />
 
 
       <div className="gameover-cont cont" style={{display: gameStatus === 'loss' || gameStatus === 'win' ? 'block' : 'none'}}>

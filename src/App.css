@@ -25,7 +25,7 @@
 }
 
 .onboarding-info Button {
-  width: 100px;
+  width: 120px;
 }
 
 .main-cont {
@@ -125,5 +125,12 @@
 }
 
 @media (max-width: 400px) {
-  
+  .extra-info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 }
