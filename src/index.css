@@ -70,3 +70,21 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+	font-size: 20px;
+}
+
+button {
+	background-color: rgb(134, 73, 28);
+	font-family: 'Marhey', sans-serif;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: rgb(89, 48, 26);
+}
+
+a {
+	color: rgb(91, 160, 193);
+}
+

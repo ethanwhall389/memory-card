@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { HiSpeakerXMark } from "react-icons/hi2";
 
@@ -12,10 +13,10 @@ export default function Controls({ setIsMuted, isMuted, mainMenu }) {
     
     return (
         <div className="controls-cont cont">
-            <span 
-            className="clickable"
-            onClick={() => mainMenu()}
-            >Main Menu</span>
+            <Button
+            bttnText={'Main Menu'}
+            handleClick={mainMenu}
+            />
             
             <HiSpeakerWave
             className='clickable'

@@ -6,13 +6,34 @@
   /* height: 100vh; */
 }
 
+.main-image {
+  border-radius: 20px;
+  width: 97%;
+  max-width: 600px;
+  padding: 0 10px 0 10px;;
+}
+
 /* Onboarding screen */
 
-.onboarding-cont {
+.onboarding-cont, .gameover-cont {
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.loss, .win {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.onboarding-cont p {
+  margin: 12px 0 12px 0;
 }
 
 .onboarding-info {
@@ -24,12 +45,21 @@
   gap: 10px;
 }
 
-.onboarding-info Button {
+.buttons-cont {
+  display: flex;
+  gap: 8px;
+}
+
+.buttons-cont Button {
   width: 120px;
 }
 
 .main-cont {
   height: 100%;
+}
+
+.main-heading {
+  font-size: 40px;
 }
 
 /* Game Screen */
@@ -67,7 +97,7 @@
 }
 
 .gameboard-cont {
-  background-color: #efc519;
+  background-color: rgb(146, 202, 229);
   border: none;
   border-radius: 20px;
   display: grid;
@@ -81,7 +111,7 @@
 }
 
 .card {
-  background-color: #97bbd9;
+  background-color: rgb(231, 240, 249);
   border-radius: 20px;
   width: 200px;
   height: 250px;
@@ -124,7 +154,7 @@
   margin-top: 20px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .extra-info {
     margin-top: 10px;
     display: flex;
@@ -132,5 +162,14 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+  }
+
+  .main-heading {
+    font-size: 45px;
+  }
+
+  .buttons-cont {
+    display: flex;
+    flex-direction: column;
   }
 }

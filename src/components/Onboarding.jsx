@@ -23,27 +23,34 @@ export default function Onboarding({ setDifficulty, setGameStatus, gameStatus, s
         className="onboarding-cont"
         style={{display: gameStatus === 'onboarding' ? 'flex' : 'none'}}
         >
-            <h1 style={{fontSize: '38px'}}>Memory Cards</h1>
+            <h1 className="main-heading">Memory Cards</h1>
             <p>Try to select all of the cards without clicking the same card twice!</p>
 
+            <img src="https://images.unsplash.com/photo-1594922009922-d1665ed9ce44?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="A dog sitting happily on the beach"
+            className="main-image"
+            />
+            
             <div
             className="onboarding-info"
             >
                 <p>Select a difficulty to begin:</p>
-                <Button
-                handleClick={handleEasyClick}
-                bttnText={'Easy'}            
-                />
-                
-                <Button
-                handleClick={handleMediumClick}
-                bttnText={'Medium'}            
-                />
-                
-                <Button
-                handleClick={handleDifficultClick}
-                bttnText={'Difficult'}            
-                />
+                <div className="buttons-cont">
+                    <Button
+                    handleClick={handleEasyClick}
+                    bttnText={'Easy'}
+                    />
+                    
+                    <Button
+                    handleClick={handleMediumClick}
+                    bttnText={'Medium'}
+                    />
+                    
+                    <Button
+                    handleClick={handleDifficultClick}
+                    bttnText={'Difficult'}
+                    />
+                </div>
             </div>
         </div>
     )
