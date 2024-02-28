@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Marhey';
+	src: url('public/fonts/Marhey/Marhey-VariableFont_wght.ttf');
+  }
+
 /* STYLES RESET */
 
 html, body, div, span, applet, object, iframe,
@@ -47,7 +52,7 @@ table {
 /* END OF RESET */
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Marhey", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

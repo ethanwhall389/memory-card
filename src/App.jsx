@@ -115,6 +115,7 @@ function App() {
       
       <audio 
       muted={isMuted}
+      loop
       autoPlay src="src/assets/audio/jazz-music.mp3"></audio>
 
       <div className="onboarding-cont cont" style={{display: gameStatus === 'onboarding' ? 'block' : 'none'}}>
