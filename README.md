@@ -1,3 +1,12 @@
 # Memory Card
 
-Music by <a href="https://pixabay.com/users/denis-pavlov-music-35636692/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Denis Pavlov</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Pixabay</a>
+This project is a fun game to test your memory. The user must select each card without clicking the same card twice. Easier than it sounds! 
+
+## Tech Stack
+ - React
+ - HTML
+ - CSS
+ - <a href="https://www.thedogapi.com/">The Dog API</a>
+
+## Challenges
+This project was an introduction to the useEffect hook, which proved quite difficult for me to understand at first. It was also fun to work with an external API, which I hadn't done in a while.
