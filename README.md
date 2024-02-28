@@ -1,6 +1,6 @@
 # Memory Card
 
-This project is a fun game to test your memory. The user must select each card without clicking the same card twice. Easier than it sounds! 
+This project is a fun game to test your memory. The user must select each card without clicking the same card twice. Harder than it sounds! 
 
 ## Tech Stack
  - React
