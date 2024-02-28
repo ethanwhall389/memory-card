@@ -3,6 +3,7 @@ import GameBoard from './components/GameBoard'
 import Scoreboard from './components/Scoreboard'
 import Controls from './components/Controls'
 import Onboarding from './components/Onboarding'
+import Game from './components/Game'
 import GameOver from './components/GameOver'
 import './App.css'
 
@@ -15,7 +16,6 @@ function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const apiKey = 'live_Nd86ZZRIvGLBSLXA8iiJKscdn6mjgRhbRh3BWed89B3IBB2vxSMW4cESRsggK0V8'
-  const [isMuted, setIsMuted] = useState(false);
 
   function resetGame() {
     setGameStatus('onboarding');
@@ -43,7 +43,6 @@ function App() {
       //   }
       // })
 
-      // console.log(cardData);
 
       // Dummy data \/
       const cardData = [
@@ -109,10 +108,7 @@ function App() {
   return (
     <div className='main-cont cont'>
       
-      <audio 
-      muted={isMuted}
-      loop
-      autoPlay src="src/assets/audio/jazz-music.mp3"></audio>
+      
 
       <Onboarding
       setDifficulty={setDifficulty}
@@ -133,30 +129,19 @@ function App() {
 
       <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'block' : 'none'}}>
         
-        <h1 className='main-heading'>Memory Cards</h1>
-
-        <div className="extra-info">
-          <Scoreboard score={score} highScore={highScore}></Scoreboard>
-          <Controls
-          setIsMuted={setIsMuted}
-          isMuted={isMuted}
-          mainMenu={resetGame}
-          ></Controls>
-        </div>
-
-        <GameBoard 
+        <Game
+        // resetGame, score, setScore, highScore, cards, setCards, difficulty, setGameStatus
+        resetGame={resetGame}
+        score={score}
+        setScore={setScore}
+        highScore={highScore}
         cards={cards}
         setCards={setCards}
         difficulty={difficulty}
         setGameStatus={setGameStatus}
-        score={score}
-        setScore={setScore}
-
-        ></GameBoard>
-
-      <footer className='footer'>
-        <p>Music by <a href="https://pixabay.com/users/denis-pavlov-music-35636692/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Denis Pavlov</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Pixabay</a></p>
-      </footer>
+        />
+        
+        
       
       </div>
 

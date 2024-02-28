@@ -1,6 +1,4 @@
 export default function Card({ data, handleClick, id }) {
-    console.log(data);
-    console.log(data.length);
     return (
         <div className="card" onClick={() => handleClick(data)}>
             <div className="image-cont"
