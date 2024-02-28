@@ -1,17 +1,20 @@
 import Button from "./Button"
 
-export default function Onboarding({ setDifficulty, setGameStatus, gameStatus }) {
+export default function Onboarding({ setDifficulty, setGameStatus, gameStatus, setForceKey }) {
     
     function handleEasyClick() {
         setDifficulty(5);
+        setForceKey(prevKey => prevKey+1);
         setGameStatus('playing');
     }
     function handleMediumClick() {
         setDifficulty(10);
+        setForceKey(prevKey => prevKey+1);
         setGameStatus('playing');
     }
     function handleDifficultClick() {
         setDifficulty(15);
+        setForceKey(prevKey => prevKey+1);
         setGameStatus('playing');
     }
 

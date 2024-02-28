@@ -11,8 +11,9 @@ export default function Card({ data, handleClick, id }) {
                 backgroundRepeat: 'no-repeat'
             }}
             >
-                <p>{data.message}</p>
+                <p>{data.loadMessage}</p>
             </div>
+            
             <div className="message">
                 <p>{data.length <= 0 ? '' : data.name}</p>
             </div>

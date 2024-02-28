@@ -9,17 +9,13 @@ import './App.css'
 function App() {
 
   const [difficulty, setDifficulty] = useState(5);
+  const [forceFetchKey, setKey] = useState(0);
   const [cards, setCards] = useState([]);
   const [gameStatus, setGameStatus] = useState('onboarding');
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const apiKey = 'live_Nd86ZZRIvGLBSLXA8iiJKscdn6mjgRhbRh3BWed89B3IBB2vxSMW4cESRsggK0V8'
   const [isMuted, setIsMuted] = useState(false);
-
-  // const clickAudio = new Audio('src/assets/audio/click.wav');
-  // const jazzAudio = new Audio('src/assets/audio/jazz-music.mp3');
-
-  // jazzAudio.play();
 
   function resetGame() {
     setGameStatus('onboarding');
@@ -28,87 +24,87 @@ function App() {
 
   useEffect(() => {
     score > highScore ? setHighScore(score) : null ;
-  }, [gameStatus]);
+  }, [gameStatus, score, highScore]);
   
   useEffect(() => {
     async function fetchData() {
       
-      setCards(Array.from({length: difficulty}, () => ({message: 'Loading...'})));
+      setCards(Array.from({length: difficulty}, () => ({loadMessage: 'Loading...'})));
 
-      // const response = await fetch(`https://api.thedogapi.com/v1/images/search?&api_key=${apiKey}&has_breeds=1&limit=${difficulty}`);
-      // const data = await response.json();
+      const response = await fetch(`https://api.thedogapi.com/v1/images/search?&api_key=${apiKey}&has_breeds=1&limit=${difficulty}`);
+      const data = await response.json();
 
-      // const cardData = data.map((dogElement) => {
-      //   return {
-      //     id: dogElement.id,
-      //     url: dogElement.url,
-      //     name: dogElement.breeds[0].name,
-      //     clicked: false,
-      //   }
-      // })
+      const cardData = data.map((dogElement) => {
+        return {
+          id: dogElement.id,
+          url: dogElement.url,
+          name: dogElement.breeds[0].name,
+          clicked: false,
+        }
+      })
 
       // console.log(cardData);
 
       // Dummy data \/
-      const cardData = [
-        {
-          id: 'C3KfxN2DG',
-          url: 'https://cdn2.thedogapi.com/images/C3KfxN2DG.jpg',
-          name: 'Akbash Dog',
-          clicked: false,
-        },
-        {
-          id: 'Mn2A5Urz0',
-          url: 'https://cdn2.thedogapi.com/images/Mn2A5Urz0.jpg',
-          name: 'Bearded Collie',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG8',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG81',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG82',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG83',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG84',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
-        {
-          id: '8vgnFmYG85',
-          url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
-          name: 'Chesapeake Bay Retriever',
-          clicked: false,
-        },
+      // const cardData = [
+      //   {
+      //     id: 'C3KfxN2DG',
+      //     url: 'https://cdn2.thedogapi.com/images/C3KfxN2DG.jpg',
+      //     name: 'Akbash Dog',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: 'Mn2A5Urz0',
+      //     url: 'https://cdn2.thedogapi.com/images/Mn2A5Urz0.jpg',
+      //     name: 'Bearded Collie',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG8',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG81',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG82',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG83',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG84',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
+      //   {
+      //     id: '8vgnFmYG85',
+      //     url: 'https://cdn2.thedogapi.com/images/8vgnFmYG8.jpg',
+      //     name: 'Chesapeake Bay Retriever',
+      //     clicked: false,
+      //   },
 
 
-      ]
+      // ]
       //End of Dummy data
 
       setCards(cardData);
     }
 
     fetchData();
-  }, [difficulty])
+  }, [difficulty, forceFetchKey])
 
   return (
     <div className='main-cont cont'>
@@ -122,6 +118,7 @@ function App() {
         setDifficulty={setDifficulty}
         setGameStatus={setGameStatus}
         gameStatus={gameStatus}
+        setForceKey={setKey}
         />
 
 
