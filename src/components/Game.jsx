@@ -15,7 +15,7 @@ export default function Game({ resetGame, score, setScore, highScore, cards, set
         <audio 
         muted={isMuted}
         loop
-        autoPlay src="src/assets/audio/jazz-music.mp3">
+        autoPlay src="./src/assets/audio/jazz-music.mp3">
         </audio>
 
         <h1 className='main-heading'>Memory Cards</h1>
