@@ -124,7 +124,7 @@ function App() {
         />
       </div>
 
-      <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'block' : 'none'}}>
+      <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'flex' : 'none'}}>
         
         <Game
         // resetGame, score, setScore, highScore, cards, setCards, difficulty, setGameStatus
@@ -139,6 +139,9 @@ function App() {
         />
         
         
+        <footer className='footer'>
+        <p>Music by <a href="https://pixabay.com/users/denis-pavlov-music-35636692/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Denis Pavlov</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Pixabay</a></p>
+        </footer>
       
       </div>
 
