@@ -97,6 +97,7 @@
 }
 
 .gameboard-cont {
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
   background-color: rgb(146, 202, 229);
   border: none;
   border-radius: 20px;
@@ -124,6 +125,7 @@
 .card:hover {
   cursor: pointer;
   transform: scale(1.03);
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
 .card .image-cont {
