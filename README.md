@@ -2,6 +2,8 @@
 
 This project is a fun game to test your memory. The user must select each card without clicking the same card twice. Harder than it sounds! 
 
+Check it out live <a href='https://main--memory-cards-demo.netlify.app/'>here</a>
+
 ## Tech Stack
  - React
  - HTML
