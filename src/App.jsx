@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react'
-import GameBoard from './components/GameBoard'
-import Scoreboard from './components/Scoreboard'
-import Controls from './components/Controls'
 import Onboarding from './components/Onboarding'
 import Game from './components/Game'
 import GameOver from './components/GameOver'
@@ -9,7 +6,7 @@ import './App.css'
 
 function App() {
 
-  const [difficulty, setDifficulty] = useState(5);
+  const [difficulty, setDifficulty] = useState('');
   const [forceFetchKey, setKey] = useState(0);
   const [cards, setCards] = useState([]);
   const [gameStatus, setGameStatus] = useState('onboarding');
