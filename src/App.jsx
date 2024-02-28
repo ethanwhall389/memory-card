@@ -8,7 +8,7 @@ import './App.css'
 
 function App() {
 
-  const [difficulty, setDifficulty] = useState(3);
+  const [difficulty, setDifficulty] = useState(5);
   const [cards, setCards] = useState([]);
   const [gameStatus, setGameStatus] = useState('onboarding');
   const [score, setScore] = useState(0);
@@ -118,12 +118,12 @@ function App() {
       loop
       autoPlay src="src/assets/audio/jazz-music.mp3"></audio>
 
-      <div className="onboarding-cont cont" style={{display: gameStatus === 'onboarding' ? 'block' : 'none'}}>
         <Onboarding
         setDifficulty={setDifficulty}
         setGameStatus={setGameStatus}
+        gameStatus={gameStatus}
         />
-      </div>
+
 
       <div className="gameover-cont cont" style={{display: gameStatus === 'loss' || gameStatus === 'win' ? 'block' : 'none'}}>
         <GameOver
@@ -136,13 +136,14 @@ function App() {
 
       <div className="game-cont cont" style={{display: gameStatus === 'playing' ? 'block' : 'none'}}>
         
-        <h1 style={{fontSize: '35px'}}>Memory Card</h1>
+        <h1 style={{fontSize: '38px'}}>Memory Cards</h1>
 
         <div className="extra-info">
           <Scoreboard score={score} highScore={highScore}></Scoreboard>
           <Controls
           setIsMuted={setIsMuted}
           isMuted={isMuted}
+          mainMenu={resetGame}
           ></Controls>
         </div>
 
@@ -156,7 +157,12 @@ function App() {
 
         ></GameBoard>
 
+      <footer className='footer'>
+        <p>Music by <a href="https://pixabay.com/users/denis-pavlov-music-35636692/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Denis Pavlov</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192585">Pixabay</a></p>
+      </footer>
+      
       </div>
+
 
     </div>
   )
