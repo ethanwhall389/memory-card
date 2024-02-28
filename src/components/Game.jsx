@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import music from '../../src/assets/audio/jazz-music.mp3'
 import Scoreboard from "./Scoreboard"
 import Controls from "./Controls"
 import GameBoard from "./GameBoard"
@@ -15,7 +15,7 @@ export default function Game({ resetGame, score, setScore, highScore, cards, set
         <audio 
         muted={isMuted}
         loop
-        autoPlay src="./src/assets/audio/jazz-music.mp3">
+        autoPlay src={music}>
         </audio>
 
         <h1 className='main-heading'>Memory Cards</h1>
